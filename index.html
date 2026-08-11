@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="referrer" content="no-referrer" />
+<title>Verify your exclusive Neovarsity offer</title>
+<meta name="description" content="Verify your registered email and coupon code to book your Neovarsity counselling session." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  /* Blue is Scaler's own #0044B8, sampled from the logo file — not a stock brand blue */
+  --blue:#0044B8;
+  --blue-deep:#002E7A;
+  --ink:#0E1726;
+  --ink-2:#46536A;
+  --ink-3:#7A8699;
+  --ground:#EDEFF3;
+  --card:#FFFFFF;
+  --line:#D9DEE7;
+  --line-2:#EBEEF3;
+  --ok:#0F6B45;
+  --bad:#A3302B;
+  --bad-bg:#FDF3F2;
+
+  --display:'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  min-height:100dvh; background:var(--ground); color:var(--ink);
+  font-family:var(--body); -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:24px 16px 40px;
+}
+:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+[hidden]{display:none !important;}
+
+/* ---------- brand ---------- */
+.brand{margin:0 0 22px; display:flex; align-items:center; gap:12px;}
+.brand img{height:26px; width:auto; display:block;}
+.brand .fallback{
+  font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:-.01em; color:var(--ink);
+}
+.brand .fallback span{color:var(--blue);}
+
+/* ---------- card ---------- */
+.card{
+  width:100%; max-width:440px; background:var(--card);
+  border:1px solid var(--line); border-radius:14px;
+  padding:36px 32px 32px;
+  box-shadow:0 1px 2px rgba(14,23,38,.04), 0 12px 32px -18px rgba(14,23,38,.28);
+}
+@media (max-width:480px){ .card{padding:28px 20px 24px; border-radius:12px;} }
+
+h1{
+  margin:0 0 10px; font-family:var(--display); font-weight:600;
+  font-size:25px; line-height:1.2; letter-spacing:-.02em; color:var(--ink);
+}
+.sub{margin:0 0 28px; font-size:14.5px; line-height:1.6; color:var(--ink-2);}
+
+/* ---------- fields ---------- */
+.field{margin:0 0 18px;}
+label{
+  display:block; margin:0 0 7px; font-size:11px; font-weight:600;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3);
+}
+input{
+  width:100%; font-family:var(--body); font-size:16px; /* 16px stops iOS zoom-on-focus */
+  color:var(--ink); background:#fff;
+  border:1px solid var(--line); border-radius:8px;
+  padding:13px 14px; transition:border-color .15s, box-shadow .15s;
+}
+input::placeholder{color:#AEB6C4;}
+input:hover{border-color:#C2CAD8;}
+input:focus{outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,68,184,.12);}
+input:disabled{background:#F6F7F9; color:var(--ink-3);}
+
+/* The signature: the coupon reads as a credential, not a text box. */
+#coupon{
+  font-family:var(--mono); font-weight:600; font-size:16px;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+#coupon::placeholder{letter-spacing:.12em;}
+
+.err{
+  display:block; margin:7px 0 0; font-size:12.5px; line-height:1.45; color:var(--bad);
+}
+input[aria-invalid="true"]{border-color:var(--bad);}
+input[aria-invalid="true"]:focus{box-shadow:0 0 0 3px rgba(163,48,43,.12);}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  width:100%; margin-top:8px; cursor:pointer;
+  font-family:var(--body); font-size:15px; font-weight:600;
+  border-radius:8px; padding:14px 16px; border:1px solid transparent;
+  text-decoration:none; transition:background .15s, border-color .15s;
+}
+.btn-primary{background:var(--blue); border-color:var(--blue); color:#fff;}
+.btn-primary:hover:not(:disabled){background:var(--blue-deep); border-color:var(--blue-deep);}
+.btn-primary:disabled{background:#9BAFD4; border-color:#9BAFD4; cursor:not-allowed;}
+.btn-ghost{background:#fff; border-color:var(--line); color:var(--ink);}
+.btn-ghost:hover{border-color:#C2CAD8;}
+
+.spinner{
+  width:15px; height:15px; border:2px solid rgba(255,255,255,.4);
+  border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ---------- result states ---------- */
+.result{text-align:center; padding:6px 0 0;}
+
+/* The stamp: the one moment this page exists for. */
+.stamp{
+  display:inline-block; margin:0 auto 22px;
+  font-family:var(--display); font-weight:700; font-size:15px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--ok);
+  border:2px solid var(--ok); border-radius:4px;
+  padding:9px 18px; transform:rotate(-4deg);
+  animation:stamp .45s cubic-bezier(.2,1.5,.4,1) both;
+}
+@keyframes stamp{
+  0%  {opacity:0; transform:rotate(-4deg) scale(1.5);}
+  60% {opacity:1; transform:rotate(-4deg) scale(.94);}
+  100%{opacity:1; transform:rotate(-4deg) scale(1);}
+}
+.result h2{
+  margin:0 0 10px; font-family:var(--display); font-weight:600;
+  font-size:22px; line-height:1.25; letter-spacing:-.015em;
+}
+.result p{margin:0 0 22px; font-size:14.5px; line-height:1.65; color:var(--ink-2);}
+.meta{
+  font-family:var(--mono); font-size:12px; color:var(--ink-3);
+  margin:0 0 24px; word-break:break-all;
+}
+.bad-mark{
+  display:inline-block; margin:0 auto 20px; padding:9px 18px;
+  font-family:var(--display); font-weight:700; font-size:15px;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--bad); border:2px solid var(--bad); border-radius:4px;
+  background:var(--bad-bg);
+}
+.retry{
+  display:block; width:100%; margin-top:10px; padding:6px;
+  background:none; border:0; cursor:pointer;
+  font-family:var(--body); font-size:13.5px; color:var(--ink-3); text-decoration:underline;
+}
+.retry:hover{color:var(--ink);}
+
+.foot{margin:20px 0 0; font-size:12.5px; line-height:1.6; color:var(--ink-3); text-align:center; max-width:440px;}
+.foot a{color:var(--ink-2);}
+
+@media (prefers-reduced-motion:reduce){
+  .stamp{animation:none;}
+  .spinner{animation-duration:1.6s;}
+  *{transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<div class="brand">
+  <!-- Drop a Neovarsity/Scaler wordmark at assets/logo.svg. Until then the
+       text lockup below shows, which is a legitimate fallback rather than a
+       broken image. -->
+  <img src="assets/logo.svg" alt="Neovarsity by Scaler" onerror="this.remove()" />
+  <span class="fallback">Neo<span>varsity</span></span>
+</div>
+
+<main class="card">
+
+  <!-- ============ 1. FORM ============ -->
+  <section id="viewForm">
+    <h1>Verify your exclusive Neovarsity offer</h1>
+    <p class="sub">Enter your registered email ID and exclusive coupon code to unlock your booking.</p>
+
+    <div class="field">
+      <label for="email">Registered email ID</label>
+      <input type="email" id="email" name="email" inputmode="email" autocomplete="email"
+             autocapitalize="off" spellcheck="false" placeholder="you@example.com"
+             aria-describedby="emailErr" />
+      <span class="err" id="emailErr" role="alert" hidden></span>
+    </div>
+
+    <div class="field">
+      <label for="coupon">Exclusive coupon code</label>
+      <input type="text" id="coupon" name="coupon" autocomplete="off" autocapitalize="characters"
+             spellcheck="false" placeholder="NEO-XXXXX" aria-describedby="couponErr" />
+      <span class="err" id="couponErr" role="alert" hidden></span>
+    </div>
+
+    <button class="btn btn-primary" id="verifyBtn" type="button">
+      <span id="btnLabel">Verify &amp; continue</span>
+    </button>
+    <span class="err" id="formErr" role="alert" hidden style="text-align:center;"></span>
+  </section>
+
+  <!-- ============ 2. SUCCESS ============ -->
+  <section id="viewOk" class="result" hidden>
+    <div class="stamp">Verified</div>
+    <h2>You're eligible</h2>
+    <p>Your exclusive Neovarsity offer has been verified. You can now book your counselling session.</p>
+    <p class="meta" id="okMeta"></p>
+    <a class="btn btn-primary" id="bookBtn" href="#" target="_blank" rel="noopener noreferrer">Book your session</a>
+  </section>
+
+  <!-- ============ 3. NOT ELIGIBLE ============ -->
+  <section id="viewBad" class="result" hidden>
+    <div class="bad-mark">No match</div>
+    <h2>You are not eligible for this offer</h2>
+    <p>Please check that you have entered the registered email ID and coupon code exactly as they appear in your email. If you believe this is an error, contact Mukul.</p>
+    <!-- Most failures are a mistyped code, so retrying leads. Support is the
+         fallback, not the first suggestion. -->
+    <button class="btn btn-primary" type="button" data-retry>Check the code again</button>
+    <a class="btn btn-ghost" id="supportBtn" href="#" style="margin-top:10px;">Contact support</a>
+  </section>
+
+  <!-- ============ 4. SERVER ERROR ============ -->
+  <section id="viewErr" class="result" hidden>
+    <h2>We couldn't check that just now</h2>
+    <p>Something went wrong on our side, not yours. Wait a moment and try again — your code is still valid.</p>
+    <button class="btn btn-primary" type="button" data-retry>Try again</button>
+    <a class="btn btn-ghost" id="supportBtn2" href="#" style="margin-top:10px;">Contact support</a>
+  </section>
+
+  <!-- ============ 5. RATE LIMITED ============ -->
+  <section id="viewSlow" class="result" hidden>
+    <h2>Too many attempts</h2>
+    <p>For security, we've paused checks from this device for a few minutes. If you're unsure of your code, contact Mukul and he can look it up.</p>
+    <a class="btn btn-ghost" id="supportBtn3" href="#">Contact support</a>
+  </section>
+
+</main>
+
+<p class="foot" id="footNote">
+  This offer is limited to enrolled Neovarsity learners.
+  Trouble verifying? <a href="#" id="footSupport">Email Mukul</a>.
+</p>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var CFG = window.NEOVARSITY_CONFIG || {};
+  var API = CFG.apiUrl || '';
+  var SUPPORT_EMAIL = CFG.supportEmail || 'mukul.k@scaler.com';
+  var SUPPORT_SUBJECT = CFG.supportSubject || 'Neovarsity Offer Verification Assistance';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var VIEWS = ['viewForm', 'viewOk', 'viewBad', 'viewErr', 'viewSlow'];
+
+  function show(id) {
+    VIEWS.forEach(function (v) { $(v).hidden = (v !== id); });
+    $('footNote').hidden = (id === 'viewOk');
+    if (id !== 'viewForm') $('#').scrollIntoView ? null : null;
+  }
+
+  /* -------- support mailto, built once -------- */
+  var mailto = 'mailto:' + SUPPORT_EMAIL + '?subject=' + encodeURIComponent(SUPPORT_SUBJECT);
+  ['supportBtn', 'supportBtn2', 'supportBtn3', 'footSupport'].forEach(function (id) {
+    var el = $(id); if (el) el.href = mailto;
+  });
+
+  /* -------- field errors -------- */
+  function setError(inputId, errId, msg) {
+    var input = $(inputId), err = $(errId);
+    if (msg) {
+      input.setAttribute('aria-invalid', 'true');
+      err.textContent = msg; err.hidden = false;
+    } else {
+      input.removeAttribute('aria-invalid');
+      err.textContent = ''; err.hidden = true;
+    }
+  }
+  function clearErrors() {
+    setError('email', 'emailErr', '');
+    setError('coupon', 'couponErr', '');
+    $('formErr').hidden = true;
+  }
+  ['email', 'coupon'].forEach(function (id) {
+    $(id).addEventListener('input', function () {
+      setError(id, id === 'email' ? 'emailErr' : 'couponErr', '');
+    });
+    $(id).addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); verify(); }
+    });
+  });
+
+  /* -------- client-side validation --------
+     Only checks shape, never eligibility. Catching an empty field here saves
+     the learner a round trip; it never decides who is eligible. */
+  function validate(email, coupon) {
+    var ok = true;
+    if (!email)      { setError('email', 'emailErr', 'Enter your registered email ID.'); ok = false; }
+    else if (!/^[^\s@]+@[^\s@.]+\.[^\s@]+$/.test(email)) {
+      setError('email', 'emailErr', 'That doesn\u2019t look like an email address.'); ok = false;
+    }
+    if (!coupon)     { setError('coupon', 'couponErr', 'Enter your coupon code.'); ok = false; }
+    return ok;
+  }
+
+  var busy = false;
+
+  function setBusy(on) {
+    busy = on;
+    var btn = $('verifyBtn');
+    btn.disabled = on;
+    $('email').disabled = on;
+    $('coupon').disabled = on;
+    $('btnLabel').textContent = on ? 'Verifying' : 'Verify & continue';
+    var sp = btn.querySelector('.spinner');
+    if (on && !sp) { var s = document.createElement('span'); s.className = 'spinner'; btn.appendChild(s); }
+    if (!on && sp) sp.remove();
+  }
+
+  function verify() {
+    if (busy) return;                       // guards double-submit via Enter too
+    clearErrors();
+
+    var email  = $('email').value.trim().toLowerCase();
+    var coupon = $('coupon').value.trim().toUpperCase();  // the API does the real normalising
+
+    if (!validate(email, coupon)) return;
+
+    if (!API) {
+      $('formErr').textContent = 'Verification is not configured yet. Set apiUrl in config.js.';
+      $('formErr').hidden = false;
+      return;
+    }
+
+    setBusy(true);
+
+    // Apps Script can't answer a CORS preflight, and a JSON content-type
+    // triggers one. text/plain is a "simple request" and goes straight
+    // through; the body is still JSON either way.
+    var isAppsScript = /script\.google\.com/.test(API);
+
+    fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': isAppsScript ? 'text/plain;charset=utf-8' : 'application/json' },
+      body: JSON.stringify({ email: email, coupon: coupon })
+    })
+      .then(function (res) {
+        if (res.status === 429) return { ok: false, reason: 'rate_limited' };
+        if (!res.ok && res.status >= 500) throw new Error('server');
+        return res.json();
+      })
+      .then(function (data) {
+        setBusy(false);
+
+        if (data.ok) {
+          // The booking URL arrives from the API. It is never in this page's
+          // source, so failing verification reveals nothing.
+          $('bookBtn').href = data.booking_url || '#';
+          $('okMeta').textContent = data.email_masked ? 'Verified for ' + data.email_masked : '';
+          show('viewOk');
+          return;
+        }
+
+        if (data.reason === 'rate_limited') { show('viewSlow'); return; }
+        if (data.reason === 'bad_email') {
+          setError('email', 'emailErr', 'That doesn\u2019t look like an email address.'); return;
+        }
+        if (data.reason === 'incomplete') {
+          validate(email, coupon); return;
+        }
+        show('viewBad');
+      })
+      .catch(function () {
+        setBusy(false);
+        show('viewErr');
+      });
+  }
+
+  $('verifyBtn').addEventListener('click', verify);
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-retry]'), function (b) {
+    b.addEventListener('click', function () {
+      clearErrors();
+      $('coupon').value = '';
+      show('viewForm');
+      $('coupon').focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
